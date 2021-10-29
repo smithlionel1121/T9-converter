@@ -19,6 +19,7 @@
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "no-console": "error",
+    "no-restricted-syntax": "off",
     "prettier/prettier": "off"
   },
   "env": {
