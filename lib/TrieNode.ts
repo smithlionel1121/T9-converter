@@ -8,6 +8,10 @@ class TrieNode {
     this.children = new Map();
   }
 
+  get hasLeaf() {
+    return !!this.words.length;
+  }
+
   addWord(word: string) {
     this.words.push(word);
   }
