@@ -5,7 +5,6 @@
   width: 45vh;
   border-radius: 4vh;
   border-top-width: 5vh;
-  border-bottom-width: 2vh;
 
   &::before {
     content: '';
@@ -34,5 +33,19 @@
       height: 3.5vh;
       width: 3.5vh;
     }
+  }
+
+  .screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .converter {
+    min-height: 40%;
+  }
+
+  .keypad {
+    flex-grow: 1;
   }
 }
