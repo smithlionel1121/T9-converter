@@ -1,0 +1,38 @@
+.smartphone {
+  position: relative;
+  border: 2vh solid black;
+  height: 90vh;
+  width: 45vh;
+  border-radius: 4vh;
+  border-top-width: 5vh;
+  border-bottom-width: 2vh;
+
+  &::before {
+    content: '';
+    background-color: dimgrey;
+    display: block;
+    position: absolute;
+    top: -1.5vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 0.5vh;
+    width: 6vh;
+  }
+
+  &.buttons {
+    border-bottom-width: 7.5vh;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -7vh;
+      border-radius: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: dimgrey;
+      height: 3.5vh;
+      width: 3.5vh;
+    }
+  }
+}

@@ -1,7 +1,11 @@
-import Form from 'components/Form';
+import Smartphone from 'components/Smartphone';
 
 const Home = () => {
-  return <Form />;
+  return (
+    <main>
+      <Smartphone />
+    </main>
+  );
 };
 
 export default Home;
