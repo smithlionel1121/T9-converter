@@ -1,5 +1,6 @@
 import TrieNode from './TrieNode';
 import keypadMappings from './data/keypadMappings.json';
+import { SUGGESTIONS_TARGET } from './constants';
 
 interface KeyMap {
   [key: string]: number;
@@ -53,6 +54,7 @@ class Trie {
 
   traverseTrie(root: TrieNode) {
     for (const child of root.children.values()) {
+      if (this.suggestions.length >= SUGGESTIONS_TARGET) return;
       if (child.hasLeaf) this.suggestions.push(...child.words);
       this.traverseTrie(child);
     }
