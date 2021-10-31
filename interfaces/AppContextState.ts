@@ -3,4 +3,5 @@ export default interface AppContextState {
   suggestions: string[];
   addNumber: (number: string) => void;
   replaceNumericCode: (numericCode: string) => void;
+  getSuggestions: () => void;
 }

@@ -3,15 +3,21 @@ import { useContext } from 'react';
 import styles from './TextDisplay.module.scss';
 
 const TextDisplay = () => {
-  const { numericCode, replaceNumericCode } = useContext(AppContext);
+  const { numericCode, replaceNumericCode, getSuggestions } =
+    useContext(AppContext);
   return (
-    <input
-      type="text"
-      placeholder="Enter text..."
-      className={styles.display}
-      value={numericCode}
-      onChange={(e) => replaceNumericCode(e.target.value)}
-    />
+    <div className={styles.display}>
+      <input
+        type="text"
+        placeholder="Enter text..."
+        value={numericCode}
+        className={styles.input}
+        onChange={(e) => replaceNumericCode(e.target.value)}
+      />
+      <button type="submit" onClick={() => getSuggestions()}>
+        Submit
+      </button>
+    </div>
   );
 };
 
