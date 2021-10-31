@@ -14,9 +14,13 @@ const AppContextProvider = ({ children }: Props) => {
   const addNumber = (number: string) => {
     dispatch({ type: ActionType.ADD_NUMBER, payload: number });
   };
+  const replaceNumericCode = (numericCode: string) => {
+    if (numericCode.match(/^(\s*|[2-9]+)$/))
+      dispatch({ type: ActionType.REPLACE_NUMERIC_CODE, payload: numericCode });
+  };
 
   return (
-    <AppContext.Provider value={{ ...state, addNumber }}>
+    <AppContext.Provider value={{ ...state, addNumber, replaceNumericCode }}>
       {children}
     </AppContext.Provider>
   );
