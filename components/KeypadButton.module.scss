@@ -1,10 +1,30 @@
 .keypadButton {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin: auto;
+  padding: 1em;
   height: 75%;
   width: 75%;
   border-radius: 50%;
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.25em 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      'number'
+      'letters';
+  }
+
+  .letters {
+    grid-area: letters;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1px;
+    padding-left: 1px;
+  }
+
+  .number {
+    grid-area: number;
+  }
 }
