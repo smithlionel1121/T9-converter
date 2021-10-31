@@ -2,15 +2,24 @@ import AppContext from 'context/app-context';
 import { ReactNode, useReducer } from 'react';
 import reducer from 'context/app-reducer';
 import initialState from 'context/app-initial';
+import { ActionType } from 'context/app-actions';
 
 interface Props {
   children: ReactNode;
 }
 
 const AppContextProvider = ({ children }: Props) => {
-  const [state] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
+  const addNumber = (number: string) => {
+    dispatch({ type: ActionType.ADD_NUMBER, payload: number });
+  };
+
+  return (
+    <AppContext.Provider value={{ ...state, addNumber }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export default AppContextProvider;

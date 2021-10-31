@@ -1,3 +1,4 @@
 export default interface AppContextState {
   numericCode: string;
+  addNumber: (number: string) => void;
 }
