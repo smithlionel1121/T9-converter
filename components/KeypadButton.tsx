@@ -15,7 +15,7 @@ const KeypadButton = ({ element }: Props) => {
     <button
       type="button"
       className={styles.keypadButton}
-      onClick={() => addNumber(number.toString())}
+      onClick={() => addNumber(number)}
     >
       <div className={styles.content}>
         <span className={styles.number}>{number}</span>

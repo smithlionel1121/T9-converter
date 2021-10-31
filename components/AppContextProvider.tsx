@@ -13,8 +13,9 @@ interface Props {
 const AppContextProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addNumber = (number: string) => {
-    dispatch({ type: ActionType.ADD_NUMBER, payload: number });
+  const addNumber = (number: number) => {
+    if (number > 1)
+      dispatch({ type: ActionType.ADD_NUMBER, payload: number.toString() });
   };
   const replaceNumericCode = (numericCode: string) => {
     if (numericCode.match(/^(\s*|[2-9]+)$/))
