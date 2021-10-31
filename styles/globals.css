@@ -19,8 +19,7 @@ a {
 html,
 body,
 div#__next,
-div#__next > div,
-div#__next > div > main {
+div#__next > main {
   height: 100%;
 }
 

@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import 'styles/globals.css';
-import Layout from 'components/Layout';
 import type { AppProps } from 'next/app';
+import AppContextProvider from 'components/AppContextProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <AppContextProvider>
       <Component {...pageProps} />
-    </Layout>
+    </AppContextProvider>
   );
 }
 
