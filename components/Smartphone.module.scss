@@ -6,6 +6,15 @@
   border-radius: 4vh;
   border-top-width: 5vh;
 
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40% 60%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'converter'
+    'keypad';
+
   &::before {
     content: '';
     background-color: dimgrey;
@@ -35,17 +44,27 @@
     }
   }
 
-  .screen {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
   .converter {
-    min-height: 40%;
-  }
+    grid-area: converter;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      'display'
+      'suggestions';
 
-  .keypad {
-    flex-grow: 1;
+    .display {
+      grid-area: display;
+    }
+
+    .suggestions {
+      grid-area: suggestions;
+    }
+
+    .keypad {
+      grid-area: keypad;
+    }
   }
 }

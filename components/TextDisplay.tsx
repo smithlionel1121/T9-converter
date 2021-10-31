@@ -1,12 +1,14 @@
 import AppContext from 'context/app-context';
 import { useContext } from 'react';
 import styles from './TextDisplay.module.scss';
+import smartphoneStyles from './Smartphone.module.scss';
 
 const TextDisplay = () => {
   const { numericCode, replaceNumericCode, getSuggestions } =
     useContext(AppContext);
+
   return (
-    <div className={styles.display}>
+    <div className={`${styles.display} ${smartphoneStyles.display}`}>
       <input
         type="text"
         placeholder="Enter text..."
@@ -14,7 +16,7 @@ const TextDisplay = () => {
         className={styles.input}
         onChange={(e) => replaceNumericCode(e.target.value)}
       />
-      <button type="submit" onClick={() => getSuggestions()}>
+      <button type="submit" onClick={getSuggestions}>
         Submit
       </button>
     </div>

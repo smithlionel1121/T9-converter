@@ -6,15 +6,11 @@ import TextDisplay from './TextDisplay';
 const Smartphone = () => {
   return (
     <div className={styles.smartphone}>
-      <div className={styles.screen}>
-        <div className={styles.converter}>
-          <TextDisplay />
-          <SuggestionsList />
-        </div>
-        <div className={styles.keypad}>
-          <Keypad />
-        </div>
+      <div className={styles.converter}>
+        <TextDisplay />
+        <SuggestionsList />
       </div>
+      <Keypad />
     </div>
   );
 };

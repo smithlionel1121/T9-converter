@@ -1,16 +1,16 @@
 import AppContext from 'context/app-context';
 import { useContext } from 'react';
+import styles from './SuggestionsList.module.scss';
+import smartphoneStyles from './Smartphone.module.scss';
 
 const SuggestionsList = () => {
   const { suggestions } = useContext(AppContext);
   return (
-    <div>
-      <ul>
-        {suggestions.map((suggestion) => (
-          <li key={suggestion}>{suggestion}</li>
-        ))}
-      </ul>
-    </div>
+    <ul className={`${styles.list} ${smartphoneStyles.suggestions}`}>
+      {suggestions.map((suggestion) => (
+        <li key={suggestion}>{suggestion}</li>
+      ))}
+    </ul>
   );
 };
 
