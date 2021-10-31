@@ -1,5 +1,6 @@
 import Keypad from './Keypad';
 import styles from './Smartphone.module.scss';
+import SuggestionsList from './SuggestionsList';
 import TextDisplay from './TextDisplay';
 
 const Smartphone = () => {
@@ -8,6 +9,7 @@ const Smartphone = () => {
       <div className={styles.screen}>
         <div className={styles.converter}>
           <TextDisplay />
+          <SuggestionsList />
         </div>
         <div className={styles.keypad}>
           <Keypad />
