@@ -36,6 +36,11 @@ class Trie {
   }
 
   searchWord(numberCode: string) {
+    if (!numberCode) {
+      this.suggestions = [];
+      return;
+    }
+
     let root = this.trie;
 
     for (const number of numberCode) {

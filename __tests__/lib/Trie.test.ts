@@ -44,4 +44,11 @@ describe('Trie tests', () => {
 
     expect(trie.suggestions.length).toBe(0);
   });
+
+  it('should return no suggestions an empty string is searched', () => {
+    trie.insertWord(wordMapping.word);
+    trie.searchWord('');
+
+    expect(trie.suggestions.length).toBe(0);
+  });
 });
