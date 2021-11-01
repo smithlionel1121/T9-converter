@@ -1,19 +1,27 @@
 import AppContext from 'context/app-context';
-import { useContext } from 'react';
+import { KeyboardEventHandler, useContext } from 'react';
 import styles from './TextDisplay.module.scss';
 import smartphoneStyles from './Smartphone.module.scss';
 
 const TextDisplay = () => {
-  const { numericCode, replaceNumericCode } = useContext(AppContext);
+  const { numericCode, suggestions, addNumber, replaceNumericCode } =
+    useContext(AppContext);
+
+  const handleKeyDown: KeyboardEventHandler = (e) => {
+    if (e.key === 'Backspace') replaceNumericCode(numericCode.slice(0, -1));
+    if (!e.key.match(/^[2-9]$/)) return;
+    addNumber(parseInt(e.key, 10));
+  };
 
   return (
     <div className={`${styles.display} ${smartphoneStyles.display}`}>
       <input
         type="text"
-        placeholder="Enter text..."
-        value={numericCode}
         className={styles.input}
-        onChange={(e) => replaceNumericCode(e.target.value)}
+        placeholder="Enter text..."
+        value={suggestions[0]?.slice(0, numericCode.length) ?? numericCode}
+        onKeyDown={handleKeyDown}
+        readOnly
       />
     </div>
   );
