@@ -12,7 +12,7 @@ export default async (
   const trie = new Trie();
 
   const {
-    body: { code: numericCode },
+    body: { numericCode },
   } = req;
 
   const file = createInterface({

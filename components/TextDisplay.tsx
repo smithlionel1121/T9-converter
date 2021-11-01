@@ -4,8 +4,7 @@ import styles from './TextDisplay.module.scss';
 import smartphoneStyles from './Smartphone.module.scss';
 
 const TextDisplay = () => {
-  const { numericCode, replaceNumericCode, getSuggestions } =
-    useContext(AppContext);
+  const { numericCode, replaceNumericCode } = useContext(AppContext);
 
   return (
     <div className={`${styles.display} ${smartphoneStyles.display}`}>
@@ -16,9 +15,6 @@ const TextDisplay = () => {
         className={styles.input}
         onChange={(e) => replaceNumericCode(e.target.value)}
       />
-      <button type="submit" onClick={getSuggestions}>
-        Submit
-      </button>
     </div>
   );
 };
