@@ -1,4 +1,19 @@
 .list {
   list-style: none;
-  padding: 0 0.5em;
+  padding: 0;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  .suggestion {
+    padding-left: 0.3rem;
+
+    border: thin dotted black;
+    font-size: 1.5em;
+
+    &:hover {
+      background-color: lightgrey;
+    }
+  }
 }

@@ -8,7 +8,9 @@ const SuggestionsList = () => {
   return (
     <ul className={`${styles.list} ${smartphoneStyles.suggestions}`}>
       {suggestions.map((suggestion) => (
-        <li key={suggestion}>{suggestion}</li>
+        <li key={suggestion} className={styles.suggestion}>
+          {suggestion}
+        </li>
       ))}
     </ul>
   );

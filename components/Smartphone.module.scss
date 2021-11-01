@@ -54,6 +54,7 @@
     grid-template-areas:
       'display'
       'suggestions';
+    overflow: hidden;
 
     .display {
       grid-area: display;
