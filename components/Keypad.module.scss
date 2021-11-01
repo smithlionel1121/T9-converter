@@ -1,14 +1,23 @@
 .keypad {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  height: 100%;
   list-style: none;
-  margin: auto;
-  padding: 0.5rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0px 10%;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'pad-1 pad-2 pad-3'
+    'pad-4 pad-5 pad-6'
+    'pad-7 pad-8 pad-9'
+    '. pad-0 .';
+}
 
-  .element {
-    flex-basis: 30%;
+@for $i from 0 through 9 {
+  .pad-#{$i} {
+    grid-area: pad-#{$i};
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

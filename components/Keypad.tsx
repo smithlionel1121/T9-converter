@@ -8,7 +8,7 @@ const Keypad = () => {
   return (
     <ul className={`${styles.keypad} ${smartphoneStyles.keypad}`}>
       {keypadElements.map((element: KeypadElement) => (
-        <li key={element.number} className={styles.element}>
+        <li key={element.number} className={styles[`pad-${element.number}`]}>
           <KeypadButton element={element} />
         </li>
       ))}
