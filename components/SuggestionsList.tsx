@@ -2,6 +2,7 @@ import AppContext from 'context/app-context';
 import { useContext } from 'react';
 import styles from './SuggestionsList.module.scss';
 import smartphoneStyles from './Smartphone.module.scss';
+import Suggestion from './Suggestion';
 
 const SuggestionsList = () => {
   const { suggestions } = useContext(AppContext);
@@ -9,7 +10,7 @@ const SuggestionsList = () => {
     <ul className={`${styles.list} ${smartphoneStyles.suggestions}`}>
       {suggestions.map((suggestion) => (
         <li key={suggestion} className={styles.suggestion}>
-          {suggestion}
+          <Suggestion suggestion={suggestion} />
         </li>
       ))}
     </ul>
