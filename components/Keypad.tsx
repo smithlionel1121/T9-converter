@@ -1,8 +1,10 @@
 import keypadElements from 'lib/data/keypadElements.json';
 import KeypadElement from 'interfaces/KeypadElements';
+
 import styles from './Keypad.module.scss';
 import smartphoneStyles from './Smartphone.module.scss';
 import KeypadButton from './KeypadButton';
+import DeleteButton from './DeleteButton';
 
 const Keypad = () => {
   return (
@@ -12,6 +14,9 @@ const Keypad = () => {
           <KeypadButton element={element} />
         </li>
       ))}
+      <li className={styles.deletePad}>
+        <DeleteButton />
+      </li>
     </ul>
   );
 };

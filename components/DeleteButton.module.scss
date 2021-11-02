@@ -1,0 +1,17 @@
+@use 'styles/resets.scss' as reset;
+
+.button {
+  @include reset.buttonReset;
+  height: 50%;
+  width: 50%;
+  padding: 0;
+
+  &:focus {
+    transform: scale(1.1);
+  }
+}
+
+.icon {
+  height: 100%;
+  width: 100%;
+}

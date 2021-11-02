@@ -1,0 +1,8 @@
+@mixin buttonReset {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  -webkit-appearance: button;
+  text-transform: none;
+}

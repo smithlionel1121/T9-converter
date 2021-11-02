@@ -5,6 +5,8 @@ export default (state: AppContextState, action: Action) => {
   switch (action.type) {
     case ActionType.ADD_NUMBER:
       return { ...state, numericCode: state.numericCode + action.payload };
+    case ActionType.DELETE_NUMBER:
+      return { ...state, numericCode: state.numericCode.slice(0, -1) };
     case ActionType.REPLACE_NUMERIC_CODE:
       return { ...state, numericCode: action.payload };
     case ActionType.GET_SUGGESTIONS:
