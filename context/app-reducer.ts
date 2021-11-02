@@ -9,6 +9,8 @@ export default (state: AppContextState, action: Action) => {
       return { ...state, numericCode: action.payload };
     case ActionType.GET_SUGGESTIONS:
       return { ...state, suggestions: action.payload };
+    case ActionType.CLEAR_NUMERIC_CODE:
+      return { ...state, numericCode: '' };
     default:
       return state;
   }

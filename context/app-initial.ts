@@ -6,6 +6,7 @@ const initialState: AppContextState = {
   addNumber: () => undefined,
   replaceNumericCode: () => undefined,
   getSuggestions: () => undefined,
+  clearNumericCode: () => undefined,
 };
 
 export default initialState;

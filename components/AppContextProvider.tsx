@@ -47,13 +47,20 @@ const AppContextProvider = ({ children }: Props) => {
     if (number > 1)
       dispatch({ type: ActionType.ADD_NUMBER, payload: number.toString() });
   };
+
   const replaceNumericCode = (numericCode: string) => {
     if (numericCode.match(/^(\s*|[2-9]+)$/))
       dispatch({ type: ActionType.REPLACE_NUMERIC_CODE, payload: numericCode });
   };
 
+  const clearNumericCode = () => {
+    dispatch({ type: ActionType.CLEAR_NUMERIC_CODE, payload: undefined });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, addNumber, replaceNumericCode }}>
+    <AppContext.Provider
+      value={{ ...state, addNumber, replaceNumericCode, clearNumericCode }}
+    >
       {children}
     </AppContext.Provider>
   );
