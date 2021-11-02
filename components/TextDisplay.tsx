@@ -1,17 +1,13 @@
 import AppContext from 'context/app-context';
 import { KeyboardEventHandler, useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
+import { ActionType } from 'context/app-actions';
 import styles from './TextDisplay.module.scss';
 import smartphoneStyles from './Smartphone.module.scss';
 
 const TextDisplay = () => {
-  const {
-    numericCode,
-    suggestions,
-    addNumber,
-    replaceNumericCode,
-    clearNumericCode,
-  } = useContext(AppContext);
+  const { numericCode, suggestions, dispatch, addNumber, replaceNumericCode } =
+    useContext(AppContext);
 
   const handleKeyDown: KeyboardEventHandler = (e) => {
     if (e.key === 'Backspace') replaceNumericCode(numericCode.slice(0, -1));
@@ -29,7 +25,10 @@ const TextDisplay = () => {
         onKeyDown={handleKeyDown}
         readOnly
       />
-      <TiDelete className={styles.deleteIcon} onClick={clearNumericCode} />
+      <TiDelete
+        className={styles.deleteIcon}
+        onClick={() => dispatch({ type: ActionType.CLEAR_NUMERIC_CODE })}
+      />
     </div>
   );
 };

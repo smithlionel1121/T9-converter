@@ -8,7 +8,7 @@ export enum ActionType {
 type Action =
   | { type: ActionType.ADD_NUMBER; payload: string }
   | { type: ActionType.REPLACE_NUMERIC_CODE; payload: string }
-  | { type: ActionType.CLEAR_NUMERIC_CODE; payload: undefined }
+  | { type: ActionType.CLEAR_NUMERIC_CODE; payload?: undefined }
   | { type: ActionType.GET_SUGGESTIONS; payload: string[] };
 
 export default Action;

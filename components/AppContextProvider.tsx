@@ -53,13 +53,17 @@ const AppContextProvider = ({ children }: Props) => {
       dispatch({ type: ActionType.REPLACE_NUMERIC_CODE, payload: numericCode });
   };
 
-  const clearNumericCode = () => {
-    dispatch({ type: ActionType.CLEAR_NUMERIC_CODE, payload: undefined });
-  };
+  const { numericCode, suggestions } = state;
 
   return (
     <AppContext.Provider
-      value={{ ...state, addNumber, replaceNumericCode, clearNumericCode }}
+      value={{
+        numericCode,
+        suggestions,
+        dispatch,
+        addNumber,
+        replaceNumericCode,
+      }}
     >
       {children}
     </AppContext.Provider>
