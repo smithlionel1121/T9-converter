@@ -9,10 +9,12 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "plugins": ["testing-library"],
   "extends": [
     "next/core-web-vitals",
     "airbnb",
     "airbnb-typescript",
+    "plugin:jest-dom/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
@@ -20,11 +22,31 @@
     "react/require-default-props": "off",
     "no-console": "error",
     "no-restricted-syntax": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "jest.setup.ts",
+          "**/?(*.)+(spec|test).[jt]s?(x)",
+          "**/testUtils.tsx"
+        ]
+      }
+    ],
     "prettier/prettier": "off"
   },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ],
   "env": {
     "browser": true,
     "es2021": true,
+    "jest": true,
     "node": true
   }
 }
