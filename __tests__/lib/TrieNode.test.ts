@@ -10,7 +10,7 @@ describe('TrieNode tests', () => {
   });
 
   it('should be initialized with no words', () => {
-    expect(trieNode.words.length).toBe(0);
+    expect(trieNode.words.size).toBe(0);
   });
 
   it('should be initialized with no children', () => {
@@ -23,12 +23,12 @@ describe('TrieNode tests', () => {
   });
 
   it('should evaluate hasLeaf to false if it does not contain any complete words', () => {
-    trieNode.words = [];
+    trieNode.words = new Set([]);
     expect(trieNode.hasLeaf).toBe(false);
   });
 
   it('should evaluate hasLeaf to true if it contains any complete words', () => {
-    trieNode.words = [testWord];
+    trieNode.words = new Set([testWord]);
     expect(trieNode.hasLeaf).toBe(true);
   });
 

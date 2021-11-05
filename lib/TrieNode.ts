@@ -1,20 +1,19 @@
 class TrieNode {
-  words: string[];
+  words: Set<string>;
 
   children: Map<number, TrieNode>;
 
   constructor() {
-    this.words = [];
+    this.words = new Set();
     this.children = new Map();
   }
 
   get hasLeaf() {
-    return !!this.words.length;
+    return !!this.words.size;
   }
 
   addWord(word: string) {
-    this.words.push(word);
+    this.words.add(word);
   }
 }
-
 export default TrieNode;
