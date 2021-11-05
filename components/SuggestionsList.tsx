@@ -11,10 +11,8 @@ const SuggestionsList = () => {
       className={`${styles.list} ${smartphoneStyles.suggestions}`}
       data-test-id="suggestionsList"
     >
-      {suggestions.map((suggestion) => (
-        <li key={suggestion} className={styles.suggestion}>
-          <Suggestion suggestion={suggestion} />
-        </li>
+      {suggestions.map((suggestion, index) => (
+        <Suggestion key={suggestion} suggestion={suggestion} index={index} />
       ))}
     </ul>
   );

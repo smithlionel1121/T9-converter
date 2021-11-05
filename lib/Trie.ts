@@ -1,10 +1,7 @@
+import KeyMap from 'interfaces/KeyMap';
 import TrieNode from './TrieNode';
 import keypadMappings from './data/keypadMappings.json';
 import { SUGGESTIONS_TARGET } from './constants';
-
-interface KeyMap {
-  [key: string]: number;
-}
 
 class Trie {
   suggestions: string[];

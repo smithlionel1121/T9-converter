@@ -6,8 +6,14 @@ import styles from './TextDisplay.module.scss';
 import smartphoneStyles from './Smartphone.module.scss';
 
 const TextDisplay = () => {
-  const { numericCode, suggestions, dispatch, addNumber, replaceNumericCode } =
-    useContext(AppContext);
+  const {
+    numericCode,
+    suggestions,
+    suggestionIndex,
+    dispatch,
+    addNumber,
+    replaceNumericCode,
+  } = useContext(AppContext);
 
   const handleKeyDown: KeyboardEventHandler = (e) => {
     if (e.key === 'Backspace') replaceNumericCode(numericCode.slice(0, -1));
@@ -22,7 +28,10 @@ const TextDisplay = () => {
         className={styles.input}
         data-test-id="inputDisplay"
         placeholder="Enter text..."
-        value={suggestions[0]?.slice(0, numericCode.length) ?? numericCode}
+        value={
+          suggestions[suggestionIndex]?.slice(0, numericCode.length) ??
+          numericCode
+        }
         onKeyDown={handleKeyDown}
         readOnly
       />

@@ -1,0 +1,21 @@
+@use 'styles/resets' as reset;
+
+.suggestion {
+  padding-left: 0;
+  border: thin dotted black;
+  font-size: 1.5em;
+
+  &:hover,
+  &.active {
+    background-color: lightgrey;
+  }
+}
+
+.button {
+  @include reset.buttonReset;
+  padding-left: 0.3rem;
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+}
