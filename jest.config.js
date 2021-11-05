@@ -13,7 +13,11 @@ module.exports = {
   moduleDirectories: ['node_modules', '<rootDir>/', '<rootDir>/lib/utils'],
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'json', 'js', 'jsx'],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/.next/',
+    '<rootDir>/cypress/',
+  ],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },

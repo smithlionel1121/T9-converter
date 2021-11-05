@@ -2,7 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json",
+    "project": "./tsconfig.base.json",
     "ecmaFeatures": {
       "jsx": true
     },
@@ -27,6 +27,7 @@
       {
         "devDependencies": [
           "jest.setup.ts",
+          "cypress/**/*.ts",
           "**/?(*.)+(spec|test).[jt]s?(x)",
           "**/testUtils.tsx"
         ]
@@ -40,7 +41,13 @@
         "**/__tests__/**/*.[jt]s?(x)",
         "**/?(*.)+(spec|test).[jt]s?(x)"
       ],
+      "excludedFiles": "**/cypress/**/*.[jt]s?(x)",
       "extends": ["plugin:testing-library/react"]
+    },
+    {
+      "files": ["**/cypress/**/*.[jt]s?(x)"],
+      "excludedFiles": "**/__tests__/**/*.[jt]s?(x)",
+      "extends": ["plugin:cypress/recommended"]
     }
   ],
   "env": {
