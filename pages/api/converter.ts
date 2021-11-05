@@ -1,20 +1,12 @@
-import { once } from 'events';
 import { createReadStream } from 'fs';
 import ConverterResponse from 'interfaces/ConverterResponse';
 import Trie from 'lib/Trie';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createInterface } from 'readline';
 
-export default async (
-  req: NextApiRequest,
-  res: NextApiResponse<ConverterResponse>,
-) => {
-  const trie = new Trie();
+const trie = new Trie();
 
-  const {
-    body: { numericCode },
-  } = req;
-
+const loadDictionary = () => {
   const file = createInterface({
     input: createReadStream('lib/data/dictionary.txt'),
     output: process.stdout,
@@ -22,7 +14,17 @@ export default async (
   });
 
   file.on('line', (word) => trie.insertWord(word));
-  await once(file, 'close');
+};
+
+loadDictionary();
+
+export default (
+  req: NextApiRequest,
+  res: NextApiResponse<ConverterResponse>,
+) => {
+  const {
+    body: { numericCode },
+  } = req;
 
   trie.searchWord(numericCode);
 
