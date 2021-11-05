@@ -10,7 +10,7 @@
     'pad-1 pad-2 pad-3'
     'pad-4 pad-5 pad-6'
     'pad-7 pad-8 pad-9'
-    '. pad-0 deletePad';
+    'switchPad pad-0 deletePad';
 }
 
 @for $i from 0 through 9 {
@@ -24,6 +24,13 @@
 
 .deletePad {
   grid-area: deletePad;
+}
+.switchPad {
+  grid-area: switchPad;
+}
+
+.deletePad,
+.switchPad {
   display: flex;
   justify-content: center;
   align-items: center;

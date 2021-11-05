@@ -1,9 +1,9 @@
-import Smartphone from 'components/Smartphone';
+import DisplayContextProvider from 'components/DisplayContextProvider';
 
 const Home = () => {
   return (
     <main>
-      <Smartphone />
+      <DisplayContextProvider />
     </main>
   );
 };
