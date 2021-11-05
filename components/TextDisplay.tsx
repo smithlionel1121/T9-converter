@@ -20,6 +20,7 @@ const TextDisplay = () => {
       <input
         type="text"
         className={styles.input}
+        data-test-id="inputDisplay"
         placeholder="Enter text..."
         value={suggestions[0]?.slice(0, numericCode.length) ?? numericCode}
         onKeyDown={handleKeyDown}

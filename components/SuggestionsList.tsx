@@ -7,7 +7,10 @@ import Suggestion from './Suggestion';
 const SuggestionsList = () => {
   const { suggestions } = useContext(AppContext);
   return (
-    <ul className={`${styles.list} ${smartphoneStyles.suggestions}`}>
+    <ul
+      className={`${styles.list} ${smartphoneStyles.suggestions}`}
+      data-test-id="suggestionsList"
+    >
       {suggestions.map((suggestion) => (
         <li key={suggestion} className={styles.suggestion}>
           <Suggestion suggestion={suggestion} />
