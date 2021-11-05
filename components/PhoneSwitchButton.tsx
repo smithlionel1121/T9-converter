@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import DisplayContext from 'context/display-context';
 import { FcCellPhone } from 'react-icons/fc';
 import { MdSmartphone } from 'react-icons/md';
-import styles from './DeleteButton.module.scss';
+import styles from './IconButton.module.scss';
 
 const PhoneSwitchButton = () => {
   const { display, toggleDisplay } = useContext(DisplayContext);

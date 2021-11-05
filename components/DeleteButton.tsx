@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import AppContext from 'context/app-context';
 import { ActionType } from 'context/app-actions';
 import { RiDeleteBack2Fill } from 'react-icons/ri';
-import styles from './DeleteButton.module.scss';
+import styles from './IconButton.module.scss';
 
 const DeleteButton = () => {
   const { dispatch } = useContext(AppContext);
