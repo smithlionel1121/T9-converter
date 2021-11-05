@@ -1,8 +1,8 @@
+@use 'styles/placeholders' as *;
+
 .smartphone {
-  position: relative;
+  @extend %phoneSize;
   border: 2vh solid black;
-  height: 90vh;
-  width: 45vh;
   border-radius: 4vh;
   border-top-width: 5vh;
 
@@ -54,7 +54,6 @@
     grid-template-areas:
       'display'
       'suggestions';
-    overflow: hidden;
 
     .display {
       grid-area: display;

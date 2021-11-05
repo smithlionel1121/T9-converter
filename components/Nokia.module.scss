@@ -1,0 +1,181 @@
+@use 'styles/placeholders' as *;
+
+$phone-colour: #404257;
+$screen-colour: #7aa079;
+$button-line-colour: #2684a6;
+$shadow-grey: #404257;
+$black: #06050a;
+$silver: #fbfbfb;
+$light-grey: #bcbbc0;
+
+.phone {
+  @extend %phoneSize;
+  position: relative;
+  background: $phone-colour;
+  clip-path: polygon(5% 0, 0 55%, 2.5% 100%, 97.5% 100%, 100% 55%, 95% 0);
+  border: thick solid $phone-colour;
+  border-radius: 20%;
+
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.nokia {
+  border-radius: 20%;
+  height: 95%;
+  width: 95%;
+  clip-path: polygon(5% 0, 0 55%, 5% 100%, 95% 100%, 100% 55%, 95% 0);
+  position: relative;
+  margin-top: 0;
+}
+
+.content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25% 25% 10% 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'header'
+    'screen'
+    'buttons'
+    'keypad';
+}
+
+.screen {
+  grid-area: screen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .display {
+    overflow: hidden;
+    height: 90%;
+    width: 90%;
+    background: $screen-colour;
+    border: thin solid purple;
+    border-radius: 5%;
+
+    grid-area: display;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      'display'
+      'suggestions';
+  }
+}
+
+.buttons {
+  grid-area: buttons;
+}
+
+.keypad {
+  height: 100%;
+  width: 100%;
+  background: $phone-colour;
+
+  & > * {
+    height: 90%;
+  }
+}
+
+.header {
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+
+  margin-top: auto;
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+
+  .dot {
+    position: relative;
+    margin: 10%;
+    &,
+    &::before,
+    &::after {
+      content: '';
+      background-color: black;
+      height: 1vh;
+      width: 1vh;
+      min-height: 10px;
+      min-width: 10px;
+      border-radius: 50%;
+    }
+
+    &::before {
+      top: -200%;
+      position: absolute;
+      position: absolute;
+    }
+
+    &::after {
+      top: 200%;
+      position: absolute;
+    }
+  }
+}
+
+.top {
+  z-index: -1;
+
+  grid-area: header;
+  width: 120%;
+  width: 100%;
+  height: 60%;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  background: $silver;
+  border: 2px solid tint($black, 20%);
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  box-shadow: inset 2px -4px 2px $light-grey, inset -2px -4px 2px $light-grey,
+    inset 0px -10px 2px $light-grey, 3px 0 0 $shadow-grey, -3px 0 0 $shadow-grey;
+  &::before {
+    content: '';
+    background: $phone-colour;
+    top: 0.5%;
+    left: 50%;
+    transform: translate(-50%);
+    background: $shadow-grey;
+    height: 90%;
+    width: 99%;
+    clip-path: polygon(5% 0, 0 100%, 100% 100%, 95% 0);
+
+    position: absolute;
+    z-index: 6;
+    border-radius: 15% 15% 15% 15% /35px 35px 40% 40%;
+  }
+  .tab {
+    position: absolute;
+    background-color: $button-line-colour;
+    z-index: 90;
+    width: 10%;
+    height: 1%;
+    bottom: 10%;
+    content: '';
+    left: 50%;
+    transform: translate(-50%);
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 5%;
+    background: white;
+    border-radius: 50% 50% 0 0;
+    z-index: 9;
+    height: 10%;
+    width: 35%;
+  }
+}
